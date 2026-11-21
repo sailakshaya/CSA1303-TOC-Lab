@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[100];
+    int i, n, count0 = 0, count1 = 0, valid = 1;
+
+    printf("Enter string: ");
+    scanf("%s", s);
+
+    n = strlen(s);
+
+    for (i = 0; i < n; i++) {
+        if (s[i] == '0' && count1 == 0)
+            count0++;
+        else if (s[i] == '1')
+            count1++;
+        else
+            valid = 0;
+    }
+
+    if (count0 != count1)
+        valid = 0;
+
+    if (valid)
+        printf("Accepted");
+    else
+        printf("Rejected");
+
+    return 0;
+}
